@@ -54,21 +54,21 @@ let whichTruthy = false || '' || [2, 3].length || { thisIsTruthy: true };
 let userName = prompt('사용자 이름을 입력해주세요', '');
 
 if (userName === 'Admin') {
-  let pw = prompt('비밀번호를 입력해주세요.', '');
-
-  if (pw === '12345') {
-    console.log('안녕하세요.');
-  } else if (pw === ' ' || pw  === null) {
+  let pw = prompt('비밀번호를 입력하세요');
+  if (pw === '1234') {
+    console.log('로그인되었습니다.');
+  } else if (pw === ' ' || pw === null) {
     console.log('취소되었습니다.');
-  }else{
+  } else {
     console.log('틀린 비밀번호입니다.');
   }
 
-}else if (userName === ' ' || userName === null) {
+} else if (userName === ' ' || userName === null) {
   console.log('취소되었습니다.');
 } else {
-  console.log('없는 아이디입니다.');
+  console.log('없는 정보입니다.');
 }
+
 
 // console.log(userName);
 
