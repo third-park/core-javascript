@@ -76,7 +76,7 @@ let result = (getDay(getRandom(6)));
 console.log(result);
  *///이렇게 적을떄 왜 break문이 필요없는가? => 함수는 return을 만나게 되면 결과 내뱉고 실행을 종료하기 때문에 break문이 필요가 없는 것
 
-let login = prompt('아이디 주세요', '');
+/* let login = prompt('아이디 주세요', '');
 let loginLowerCase = login.toLowerCase();
 
 if (login === ' ' || login === null) {
@@ -93,5 +93,21 @@ if (login === ' ' || login === null) {
 } else {
   console.log('없는 아이디 입니다.');
 }
+ */
 
+let userName = prompt('사용자 아이디를 입력해주세요', ''); //여기에 .toLowerCase()붙여도 된다.
 
+if (userName.toLowerCase() === 'admin') {
+  let pw = prompt('비밀번호를 입력해 주세요.', '')
+
+  if (pw.toLowerCase() === 'themaster') {
+    console.log('welcome');
+  } else {
+    console.log('wrong');
+  }
+
+} else if (userName.replace(/\s*/g) === '' || userName === null) {
+  console.log('cencle');
+} else {
+  console.log('wrong id');
+}
