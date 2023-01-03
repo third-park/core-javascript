@@ -113,6 +113,41 @@ const randomUser = {
 };
 
 // 객체의 키, 값 순환
+
+
+for (let keyValue of Object.entries(randomUser)) {
+  let key = keyValue[0];
+  let vlaue = keyValue[1];
+
+  console.log('L1 : ',key);
+}
+
+
+for (let value in randomUser) {
+  if (Object.prototype.hasOwnProperty.call(randomUser, value)) {
+    const L1 = randomUser[value];
+    console.log('Level 1 : ' + value);
+    if (typeof L1 === 'object') {
+      for (let value in L1) {
+        if (Object.prototype.hasOwnProperty.call(L1, value)) {
+          const L2 = L1[value];
+          console.log('\tLevel 2 : ' + value);
+          if (typeof L2 === 'object') {
+            for (let value in L2) {
+              if (Object.prototype.hasOwnProperty.call(L2, value)) {
+                const L3 = L2[value];
+                console.log('\t\tLevel 3 : ' + value);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
 // - for ~ in 문
 // - for ~ of 문
 // - 성능 비교 진단
