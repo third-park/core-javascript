@@ -11,17 +11,16 @@ const calculateTotal = (...args) => {
     total += item
   })
   
-  args.reduce((acc,item)=> acc + item)
-  console.log();
-  
-  return ;
-}
+  return args.reduce((acc, item) => acc + item)
+  // console.log(args);
+
+};
 
 let resultX = calculateTotal(10000, 8900, 1360, 2100);
 // let resultY = calculateTotal(21500, 3200, 9800, 4700);
 // let resultZ = calculateTotal(9000, -2500, 5000, 11900);
 
-// console.log(resultX);
+console.log(resultX);
 // console.log(resultY);
 // console.log(resultZ);
 
@@ -94,7 +93,6 @@ console.log(user.totalGrades());
 //   }
 //   return result;
 // };
-// console.log(pow(2,53));
 
 
 //reduce 사용  Array(10) 만 하면 내용물은 빈 배열이 생김 이때 .fill()을 쓰면 ()안에 있는게 배열에 다 들어간다.
@@ -102,7 +100,15 @@ console.log(user.totalGrades());
 let powExpression = (numeric, powerCount) => Array(powerCount).fill(null).reduce(acc=>acc * numeric,1)
 //reduce 1은 초기값이다. 아무것도 안 적으면 0만 나옴.
 
+// let powExpression = function (numeric, powerCount) {
+//   Array(powerCount).fill(null).reduce(function (acc) {  
+//     acc * numeric, 1
 
+//   })
+//   return;
+// };
+
+console.log(powExpression(2,10));
 
 
 
