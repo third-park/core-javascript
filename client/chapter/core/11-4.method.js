@@ -21,6 +21,7 @@ let ladder = {
   }
 };
 
+//this를 객체 안에서 리턴 하면 일반함수에선 ladder를 가르키기때문에 체이닝 즉, ladder.up().up().up().showStep() 이런 식이 가능해진다!! 
 
 
 
@@ -36,7 +37,7 @@ const shopOrder = {
     { name: '치즈 돈까스', price: 10000, count: 1 },
   ],
   totalPrice(){
-    // console.log(this.menu[0].price * this.menu[0].count);
+    console.log(this.menu[0].price * this.menu[0].count);
       //acc += 
     return this.menu.reduce((acc, cur)=>acc + cur.price * cur.count,0)
   }
@@ -69,14 +70,18 @@ const navigationMenu = {
     return this.items[index];
   },
   addItem(newItem) {
-    this.items.push(newItem);
+    let newew = () => this.items.push(newItem);
+    newew(); //변수만 지정해주면 값을 받을 수 없뜸 () 로 함수 실행을 시켜야 된다.
   },
 };
 
-console.log(navigationMenu.getItem(0));
 
 navigationMenu.addItem({ 
   id: 'link-y', 
   text: 'Yahoo',
   link: 'https://yahoo.co.kr' 
 })
+// console.log(navigationMenu.getItem(0));
+console.log(navigationMenu.addItem());
+
+
