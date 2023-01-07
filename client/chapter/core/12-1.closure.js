@@ -40,7 +40,7 @@ function number() {
   // }
 
     return ()=> ++count
-  }
+}
 
 
 const counter = number();  //클로저!!
@@ -48,9 +48,18 @@ const counter = number();  //클로저!!
 // console.log(count); //스코프때문에 밖에서 찾을 수 없다.
 
 
+function one(a) {
+  
 
+  function two(b) {
+    return a = a + b;
+  }
+  return two
+}
 
+let total = one(5) //빈 인수를 주면 안된다.. a는 값을 지정해줘야 쓸 수 이뜸. 일케주면 a값은 total에 저장?고정?되고 total(b)로 b값을 불러 함수를 실행할 수 있다.
 
+//one()(); 이렇게 호출할 수도 있지만 closure로 작성해서 부르는게 좋다.?
 
 
 

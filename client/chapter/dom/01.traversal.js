@@ -69,3 +69,43 @@ document.addEventListener("click", () => {
   }
   clicked = !clicked;
 });
+
+/* ------------------------------------------------ 스터디*/
+// console.log(2 ** 3)
+
+// function 거듭제곱(왼쪽값 = 1, 오른쪽값 = 2) {
+// 	return 왼쪽값 ** 오른쪽값
+// }
+
+// 전통적인 프로토타입 상속
+// Number.prototype.거듭제곱 = function (오른쪽값 = 2) {
+// 	// debugger
+// 	return this.valueOf() ** 오른쪽값
+// }
+
+// 클래스 방식 프로토타입 상속
+// class MyNumber extends Number {
+//   거듭제곱(오른쪽값 = 2) {
+//     return this.valueOf() ** 오른쪽값
+//   }
+// }
+
+// a는 원시값
+// const a = 2
+// // 래퍼객체
+// a.
+// new Number(a).
+
+// ''
+// new String('').
+
+// console.log(a.거듭제곱(2))
+// console.log(a.거듭제곱(3))
+// console.log(a.거듭제곱(4))
+
+// const a = 2
+const a = new Number(2)
+console.log(a.valueOf() === 2)
+//진짜 값을 빼올려면 valueOf() 를 써야한다.
+//프로토타입 상속으로 기능을 확장할 수 있다. <- 폴리필 사용에 씜
+//Number 뒤에 .을 찍는 순간 자스는 Number에 래퍼객체를 씌우더라 Number(a) 일케.
