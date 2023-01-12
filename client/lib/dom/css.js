@@ -17,9 +17,10 @@ function removeClass(node,className) {
     node.className = ''
     return;
   }
-  if (typeof node === 'string' || typeof className === 'string') {
+  if (typeof node === 'string') {
     node = getNode(node);
-  } else {
+  }
+  if(typeof className !== 'string'){
     typeError(`removeClass 함수의 두 번째 인자는 문자타입 이어야 합니다.`)
   }
 
