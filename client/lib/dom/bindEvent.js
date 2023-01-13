@@ -1,5 +1,5 @@
 import { getNode } from "./getNode.js";
-import { typeError,syntaxError } from "..error/index.js";
+import { typeError,syntaxError } from "../error/index.js";
 
 
 

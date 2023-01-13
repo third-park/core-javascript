@@ -1,5 +1,5 @@
 import { getNode } from "./getNode.js";
-import { typeError,syntaxError,refError } from ".error/index.js";
+import { typeError,syntaxError,refError } from "../error/index.js";
 
 
 export function getInputValue(node) {
