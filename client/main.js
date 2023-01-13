@@ -1,4 +1,4 @@
-import { clearContents, getInputValue, getNode, getRandom, insertLast, isNumbericString, showAlert, syntaxError } from './lib/index.js'
+import { clearContents, copyCilpboard, getInputValue, getNode, getRandom, insertLast, isNumbericString, showAlert, syntaxError } from './lib/index.js'
 
 import { jujeobData } from "./data/data.js";
 
@@ -9,8 +9,7 @@ const submit = getNode('#submit');
 //resultArea로 통합!!
 const resultArea = getNode('.result');
 const alertError = getNode('.alert-error');
-
-const notice = getNode('.notice');
+const alertSuccess = getNode('.alert-success');
 
 /* let data = '123';
 data = Number(data);
@@ -33,7 +32,7 @@ function clickSubmitHandler(e) {
   let name = getInputValue('#nameField');
   
   //name값이 넘어가면서 배열로 나오게 된다.
-  let list = jujeobData(name)
+  let list = jujeobData(name);
 
   //배열을 담은 변수 list의 length 에 0을 만들어주기 위해 -1을 하면 된다.
   let pick = list[getRandom(list.length - 1)];
@@ -57,9 +56,17 @@ function clickSubmitHandler(e) {
   
 }
 
+function clickResultHandler() {
+  
+  copyCilpboard(resultArea);
+  showAlert(alertSuccess, '클립보드에 복사되었습니다.', 2000);
+
+}
+
+
+
+resultArea.addEventListener('click',clickResultHandler)
 
 submit.addEventListener('click',clickSubmitHandler)
-
-
 
 

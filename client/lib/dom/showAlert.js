@@ -4,7 +4,7 @@ import { getNode } from "./getNode.js"
 
 
 
-export function showAlert(node,text = '잘 적어봐요',timeout = 1500) {
+export function showAlert(node,text = '입력 잘해주세요.',timeout = 1500) {
   
   if (typeof node === 'string') node = getNode(node);
   node.textContent = text;
