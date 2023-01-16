@@ -2,10 +2,6 @@
 
 
 
-console.log(window);
-
-
-
 
 
 
