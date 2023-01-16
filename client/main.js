@@ -136,5 +136,4 @@ const handleReset = () => {
 rollingDiceButton.addEventListener('click',handleRollingDice()) //한번만 실행하면 return한 함수 자체를 반환하기 때문에 handlerRollingDice()()로 함수안에 함수도 실행시켜줘야 한다.
 recordButton.addEventListener('click',handleRecord)
 resetButton.addEventListener('click',handleReset)
-recordButton.addEventListener('click',renderRecordListItem)
 
