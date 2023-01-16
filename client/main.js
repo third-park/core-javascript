@@ -1,4 +1,4 @@
-import { clearContents, copyCilpboard, getInputValue, getNode, getRandom, insertLast, isNumbericString, showAlert, syntaxError } from './lib/index.js'
+import { addClass, clearContents, copyClipboard, getInputValue, getNode, getRandom, insertLast, isNumbericString, removeClass, showAlert, syntaxError } from './lib/index.js'
 
 import { jujeobData } from "./data/data.js";
 
@@ -40,7 +40,18 @@ function clickSubmitHandler(e) {
 
   if (!name) {
     // syntaxError('공백은 받지 않습니다.') 에러쓰면 멈추긴 하지만 되돌릴 수 없기때문에 이럴땐 x
-    showAlert(alertError,'이름을 입력해주세요',2000)
+    showAlert(alertError, '이름을 입력해주세요', 2000)
+    
+
+    //gsap
+    // gsap.fromTo(resultArea, 0.01, {x:-5}, {x:5, clearProps:"x", repeat:20})
+    addClass(resultArea, 'shake');
+    // setTimeout(() => {
+    //   removeClass(resultArea, 'shake');
+    // }, 1000);
+
+
+
     return; //출력안되도록 return으로 멈추게 하기
   }
 
@@ -54,19 +65,23 @@ function clickSubmitHandler(e) {
   clearContents(resultArea)
   insertLast(resultArea, pick);
   
+  resultArea.addEventListener('click',clickResultHandler)
 }
+
 
 function clickResultHandler() {
   
-  copyCilpboard(resultArea);
-  showAlert(alertSuccess, '클립보드에 복사되었습니다.', 2000);
-
+  copyClipboard(resultArea).then(() => {
+    showAlert(alertSuccess, '클립보드에 복사되었습니다.', 2000);
+  });
+  //약속구문 -> 약속된 결과?가 나온 이후에 실행해달라는 .then을 쓸 수 있다.
+  
+  // showAlert(alertSuccess, '클립보드에 복사되었습니다.', 2000); //복사가 실패되더라도 알림창은 떠버리게 된다. promise를 이용해야 한다.
 }
 
 
 
-resultArea.addEventListener('click',clickResultHandler)
-
 submit.addEventListener('click',clickSubmitHandler)
+
 
 
