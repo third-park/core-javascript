@@ -101,7 +101,7 @@ async function delayA() {
 
 let result = delayA();
 
-console.log(result);
+// console.log(result);
 
 //위와 같은 결과를 내려면 이렇게 쓴거랑 같다.
 /* function delayA() {
