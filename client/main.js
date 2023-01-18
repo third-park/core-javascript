@@ -1,10 +1,22 @@
 
 
 
-import { insertLast, xhrData } from "./lib/index.js";
+import { insertLast, xhrData, xhrPromise } from "./lib/index.js";
 
 
 
+/* xhrPromise
+.get('http://jsonplaceholder.typicode.com/users/1') //promise
+.then((res)=>{
+  insertLast(document.body, JSON.stringify(res));
+})
+.catch((err)=>{
+  console.log(err)
+})
+ */
+
+
+//콜백형식
 /* xhrData.get(
   'https://jsonplaceholder.typicode.com/users/1',
   (result) => {
