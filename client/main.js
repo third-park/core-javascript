@@ -1,7 +1,7 @@
 /* global gsap */
 
 
-import { renderSpinner, renderUserCard, getNode, insertLast, xhrData, xhrPromise, threePeople, changeColor, delayP} from "./lib/index.js";
+import { renderSpinner, renderUserCard, getNode, insertLast, xhrData, xhrPromise, threePeople, changeColor, delayP, renderEmptyCard, attr} from "./lib/index.js";
 
 
 
@@ -27,7 +27,7 @@ async function rendingUserList() {
     getNode('.loadingSpinner').remove();
 
     let response = await threePeople.get(
-      'https://jsonplaceholder.typicode.com/users'
+      'http://localhost:3000/users'
       );
       
       let userData = response.data;
@@ -47,7 +47,7 @@ async function rendingUserList() {
         stagger: 0.3,
       })
   } catch (err) {
-    console.log(err);
+    renderEmptyCard(userCardContainer);
     }
       
 }
@@ -56,9 +56,22 @@ rendingUserList();
 
 
 
+function handler(e) {
+  let deleteButton = e.target.closest('button');
+  let article = e.target.closest('article');
 
+  //null로 나오는 부분 막아주는 코드
+  if (!deleteButton || !article) return;
 
+  let id = attr(article, 'data-index').slice(5);
 
+  threePeople.delete(`http://localhost:3000/users/${id}`).then(() => {
+    userCardContainer.innerHTML = '';
+    rendingUserList();
+  })
+}
+
+userCardContainer.addEventListener('click', handler)
 
 
 
