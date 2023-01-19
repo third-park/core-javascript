@@ -54,7 +54,7 @@ export function delayP(option = {}) {
 
   let config = { ...defaultOptions }; //스프레드오퍼 -> 복사
 
-
+  //숫자인 timeout을 밑에 구조분해할당에 포함하기 위해 여기서 미리 걸러줌
   if (isNumber(option)) {
     config.timeout = option;
   }
@@ -81,9 +81,10 @@ export function delayP(option = {}) {
 }
 
 //promise 의 딜레이..
-// delayP(3000).then((res)=> {
-//   console.log(res);
-// })
+/* delayP(3000).then((res)=> {
+  console.log(res);
+})
+ */
 
 /* delayP()
   .then(res => console.log(res))

@@ -195,6 +195,7 @@ export function xhrPromise(options = {}) {
       
       if (status >= 200 && status < 400) {
         if (readyState === 4) {
+          console.log('통신성공')
           resolve(JSON.parse(response));
         }
       } else {
